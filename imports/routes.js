@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import TelaLogin from './ui/TelaLogin';
+import TelaLogin from './ui/Login/TelaLogin';
 import HomePage from './ui/HomePage';
 
  export const RoutesApp = () => {

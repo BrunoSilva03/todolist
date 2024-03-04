@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState, Fragment } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
-import  TelaLogin  from './TelaLogin';
+import  TelaLogin  from './Login/TelaLogin';
 
 export default HomePage = () => {
     const user = useTracker(() => Meteor.user());

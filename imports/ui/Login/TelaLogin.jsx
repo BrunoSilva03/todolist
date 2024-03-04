@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import styles from './TelaLogin.module.css';
 
+import { LoginWithGithub } from './LoginWithGithub';
+
 
 
 export default TelaLogin = () => {
@@ -17,8 +19,11 @@ export default TelaLogin = () => {
 
     return (
         <div className="main">
+
                 <h1>Bem vindo ao To Do list</h1>
+
             <div className="cardLogin">
+
                 <form onSubmit={submit}>
                     
                     <div className="areaInputs">
@@ -45,6 +50,11 @@ export default TelaLogin = () => {
                         <button>Entrar</button>
                         <span>Cadastrar</span>
                         <span>Recuperar senha</span>
+                    </div>
+                        <h3>OU</h3>
+                    <div className="otherLoginArea">
+                        
+                        <LoginWithGithub />
                     </div>
                 </form>
             </div>

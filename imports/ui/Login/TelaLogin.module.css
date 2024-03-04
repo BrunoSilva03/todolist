@@ -33,8 +33,7 @@ form input {
     margin-bottom: 20px;
 }
 .areaInputs {
-    margin-bottom: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 
@@ -44,6 +43,7 @@ form input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
 
 }
 
@@ -55,4 +55,11 @@ form input {
     color: white;
     margin-bottom: 10px;
 
+}
+
+.otherLoginArea {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 100px;
 }

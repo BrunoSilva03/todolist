@@ -1,0 +1,22 @@
+.GithubButton {
+    background: white;
+    border: 1px solid black;
+    box-shadow: 3px 7px 13px rgba(0, 0, 0, 0.295);
+    display: flex;
+    gap: 1em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    justify-content: center;
+    padding: 9px;
+    transition: 1.5s;
+}
+
+.GithubButton:hover {
+    background: #2E2264;
+    color: white;
+}
+
+.iconGithub {
+    font-size: 1.3em;
+}
+
