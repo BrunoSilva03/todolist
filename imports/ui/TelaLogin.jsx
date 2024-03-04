@@ -8,12 +8,18 @@ export default TelaLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const submit = e => {
+        e.preventDefault();
+
+        Meteor.loginWithPassword(username, password);
+    }
+
 
     return (
         <div className="main">
-                <h1>Bem vindo ao todo list</h1>
+                <h1>Bem vindo ao To Do list</h1>
             <div className="cardLogin">
-                <form >
+                <form onSubmit={submit}>
                     
                     <div className="areaInputs">
                         <input
@@ -23,7 +29,7 @@ export default TelaLogin = () => {
                             required
                             onChange={e => setUsername(e.target.value)}
                         />
-                        <br/>
+                        
                         
                         <input
                             type="password"
