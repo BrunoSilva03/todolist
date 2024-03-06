@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styles from './TelaLogin.module.css';
 
 import { LoginWithGithub } from './LoginWithGithub';
+import { LoginWithGoogle } from './LoginWithGoogle';
 
 
 
@@ -55,6 +56,7 @@ export default TelaLogin = () => {
                     <div className="otherLoginArea">
                         
                         <LoginWithGithub />
+                        <LoginWithGoogle />
                     </div>
                 </form>
             </div>
