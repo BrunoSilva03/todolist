@@ -52,6 +52,7 @@ export default TelaLogin = () => {
                         <span>Cadastrar</span>
                         <span>Recuperar senha</span>
                     </div>
+                    
                         <h3>OU</h3>
                     <div className="otherLoginArea">
                         

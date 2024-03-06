@@ -25,3 +25,4 @@ accounts-password
 accounts-github
 service-configuration
 accounts-google
+dev-error-overlay

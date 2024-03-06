@@ -15,10 +15,10 @@ export const LoginWithGoogle = () => {
     };
 
     const simulaHover = () => {
-        document.querySelector('.login').style.color = "white";
-        document.querySelector('.com').style.color = 'white';
-        document.querySelector('.Google').style.color = "white";
-        document.querySelector('.iconGoogle').style.color = "yellow";
+        document.querySelector('.login').style.color = "blue";
+        document.querySelector('.com').style.color = 'green';
+        document.querySelector('.Google').style.color = "rgb(229, 229, 4)";
+        document.querySelector('.iconGoogle').style.color = "red";
     }
 
     const simulaHoverSaiDoButton = () => {

@@ -10,6 +10,7 @@
     justify-content: center;
     padding: 9px;
     transition: 1.5s;
+    border: none;
 }
 
 .GithubButton:hover {
@@ -22,12 +23,16 @@
 }
 
 
-
+.GoogleButton {
+    transition: .3s;
+}
 
 
 .GoogleButton:hover {
-    background: blue;
-    color: white;
+    border-top: 3px solid red;
+    border-right: 3px solid yellow;
+    border-bottom: 3px solid blue;
+    border-left: 3px solid green;
 }
 
 

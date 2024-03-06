@@ -1,65 +1,164 @@
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(45deg, blue, red);
-    transition: 1.9s;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    gap: 2em;
+@charset "UTF-8";
+
+/*Celular até 600px*/
+@media screen and (max-width: 600px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(45deg, blue, red);
+        transition: 1.9s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+    }
+
+    .main h1 {
+        color: white;
+        margin-top: -20px;
+        margin-bottom: 10px;
+
+        /* AQUIIIII */
+        font-size: 1.3em;
+    }
+
+    .cardLogin {
+        background-color: white;
+        padding: 30px;
+
+        /* AQUIIIII */
+        width: 300px;
+        height: 450px;
+        /* AQUIIIII */
+
+
+        transition: 1.9s;
+        border-radius: 10px;
+        box-shadow: 3px 7px 20px;
+    }
+
+    form input {
+        /* AQUIIIII */
+        padding: 15px;
+        width: 230px;
+        /* AQUIIIII */
+
+
+        margin-bottom: 20px;
+    }
+
+    .areaInputs {
+        padding-bottom: 20px;
+    }
+
+    .areaButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+
+    }
+
+    .areaButtons button {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+
+    .otherLoginArea {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 100px;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
 }
 
-.main h1 {
-    color: white;
-    margin-top: -20px;
-    margin-bottom: 10px;
-}
+@media screen and (min-width: 1200px) {
 
-.cardLogin {
-    background-color: white;
-    padding: 30px;
-    width: 400px;
-    height: 500px;
-    transition: 1.9s;
-    border-radius: 10px;
-    box-shadow: 3px 7px 20px;
-}
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(45deg, blue, red);
+        transition: 1.9s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+    }
 
-form input {
-    padding: 25px;
-    width: 320px;
-    margin-bottom: 20px;
-}
-.areaInputs {
-    padding-bottom: 20px;
-}
+    .main h1 {
+        color: white;
+        margin-top: -20px;
+        margin-bottom: 10px;
+    }
+
+    .cardLogin {
+        background-color: white;
+        padding: 30px;
+        width: 400px;
+        height: 500px;
+        transition: 1.9s;
+        border-radius: 10px;
+        box-shadow: 3px 7px 20px;
+    }
+
+    form input {
+        padding: 25px;
+        width: 320px;
+        margin-bottom: 20px;
+    }
+
+    .areaInputs {
+        padding-bottom: 20px;
+    }
 
 
 
-.areaButtons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
+    .areaButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
 
-}
+    }
 
-.areaButtons button {
-    padding: 10px;
-    width: 200px;
-    border: none;
-    background-color: black;
-    color: white;
-    margin-bottom: 10px;
+    .areaButtons button {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
 
-}
+    }
 
-.otherLoginArea {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    height: 100px;
+    .otherLoginArea {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 100px;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+
 }
