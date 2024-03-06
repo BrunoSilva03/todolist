@@ -1,4 +1,5 @@
-.GithubButton {
+.GithubButton,
+.GoogleButton {
     background: white;
     border: 1px solid black;
     box-shadow: 3px 7px 13px rgba(0, 0, 0, 0.295);
@@ -16,7 +17,20 @@
     color: white;
 }
 
-.iconGithub {
+.iconGithub, .iconGoogle {
     font-size: 1.3em;
 }
+
+
+
+
+
+.GoogleButton:hover {
+    background: blue;
+    color: white;
+}
+
+
+
+
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { FaGithub } from 'react-icons/fa';
 
-import styles from './LoginWithGithub.module.css';
+import styles from './LoginButtons.module.css';
 
 export const LoginWithGithub = () => {
     
@@ -16,7 +16,7 @@ export const LoginWithGithub = () => {
     return (
         <button type="button" className="GithubButton" onClick={handleGithubLogin}>
 
-            Login with Github
+            Login com Github
             < FaGithub className="iconGithub" />
 
         </button>
