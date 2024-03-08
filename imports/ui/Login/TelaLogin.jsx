@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Accounts } from 'meteor/accounts-base';
 
 import styles from './TelaLogin.module.css';
 
@@ -15,6 +16,12 @@ export default TelaLogin = () => {
         e.preventDefault();
 
         Meteor.loginWithPassword(username, password);
+    }
+
+    const register = e => {
+        e.preventDefault();
+
+        Accounts.createUser(username, password);
     }
 
 
