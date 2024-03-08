@@ -47,7 +47,7 @@ form input {
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
-
+    
 }
 
 .areaButtons button {
@@ -57,6 +57,7 @@ form input {
     background-color: black;
     color: white;
     margin-bottom: 10px;
+    
 
 }
 
@@ -71,6 +72,21 @@ h3 {
     display: flex;
     justify-content: center;
     margin-bottom: 1em;
+}
+
+.cadastrar {
+    color: black;
+    text-decoration: none;
+    
+}
+
+.spanCadastrar {
+    margin-bottom: .5em;
+}
+
+.recuperarSenha {
+    color: black;
+    text-decoration: none;
 }
 
 /* Galaxy Fold */

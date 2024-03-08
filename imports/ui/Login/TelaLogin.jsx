@@ -20,8 +20,21 @@ export default TelaLogin = () => {
 
     const register = e => {
         e.preventDefault();
+        alert('Entrou no register');
 
-        Accounts.createUser(username, password);
+        //Meteor.resgisterWithPassword(username, password);
+       Accounts.createUser(username, password);
+       
+       if(!err) {
+        return true;
+       } else {
+        return false;
+       }
+    }
+
+    const recoverPassword = e => {
+        e.preventDefault();
+        alert('entrou no recoverPassword');
     }
 
 
@@ -40,6 +53,7 @@ export default TelaLogin = () => {
                             placeholder="User name"
                             name="username"
                             required
+                            autoComplete="off"
                             onChange={e => setUsername(e.target.value)}
                         />
                         
@@ -56,8 +70,8 @@ export default TelaLogin = () => {
 
                     <div className="areaButtons">
                         <button>Entrar</button>
-                        <span>Cadastrar</span>
-                        <span>Recuperar senha</span>
+                        <span className="spanCadastrar"><a href="#" onClick={register} className="cadastrar">Cadastrar</a></span>
+                        <span><a href="#" onClick={recoverPassword} className="recuperarSenha">Recuperar senha</a></span>
                     </div>
                     
                         <h3>OU</h3>

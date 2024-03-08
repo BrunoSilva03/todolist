@@ -12,7 +12,9 @@ export default HomePage = () => {
         {user ? (
             <Fragment>
 
-                <h1>Olá para você que está logado no site</h1>
+               <div className="user" onClick={logout}>
+                {user.username || user.profile.name}
+               </div>
             </Fragment>
             
         ) : (
