@@ -1,7 +1,94 @@
 @charset "UTF-8";
 
+/* Galaxy Fold */
+@media screen and (max-width: 280px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(45deg, blue, red);
+        transition: 1.9s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+    }
+
+    .main h1 {
+        color: white;
+        margin-top: -20px;
+        margin-bottom: 10px;
+
+        /* ESSE*/
+        font-size: 1em;
+    }
+
+    .cardLogin {
+        background-color: white;
+        padding: 30px;
+
+        /* ESSE*/
+        width: 230px;
+        height: 500px;
+        /* ESSE*/
+
+
+        transition: 1.9s;
+        border-radius: 10px;
+        box-shadow: 3px 7px 20px;
+    }
+
+    form input {
+        /* esse */
+        padding: 15px;
+        width: 170px;
+        /* esse */
+        
+        margin-bottom: 20px;
+    }
+
+    .areaInputs {
+        padding-bottom: 20px;
+    }
+
+    .areaButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+
+    }
+
+    .areaButtons button {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+
+    .otherLoginArea {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 100px;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+
+
+}
+
 /*Celular até 600px*/
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 281px) and (max-width: 600px) {
     .main {
         display: flex;
         flex-direction: column;
@@ -46,6 +133,234 @@
         /* AQUIIIII */
 
 
+        margin-bottom: 20px;
+    }
+
+    .areaInputs {
+        padding-bottom: 20px;
+    }
+
+    .areaButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+
+    }
+
+    .areaButtons button {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+
+    .otherLoginArea {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 100px;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+}
+
+/* Ipad Mini */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+
+    /* TUDO IGUAL, SÓ COPIAR E COLAR!!!!!!!!!!!*/
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(45deg, blue, red);
+        transition: 1.9s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+    }
+
+    .main h1 {
+        color: white;
+        margin-top: -20px;
+        margin-bottom: 10px;
+    }
+
+    .cardLogin {
+        background-color: white;
+        padding: 30px;
+        width: 400px;
+        height: 500px;
+        transition: 1.9s;
+        border-radius: 10px;
+        box-shadow: 3px 7px 20px;
+    }
+
+    form input {
+        padding: 25px;
+        width: 320px;
+        margin-bottom: 20px;
+    }
+
+    .areaInputs {
+        padding-bottom: 20px;
+    }
+
+    .areaButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+
+    }
+
+    .areaButtons button {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+
+    .otherLoginArea {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 100px;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+
+    /* TUDO IGUAL SÓ COPIAR E COLAR!!!!!!!*/
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(45deg, blue, red);
+        transition: 1.9s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+    }
+
+    .main h1 {
+        color: white;
+        margin-top: -20px;
+        margin-bottom: 10px;
+    }
+
+    .cardLogin {
+        background-color: white;
+        padding: 30px;
+        width: 400px;
+        height: 500px;
+        transition: 1.9s;
+        border-radius: 10px;
+        box-shadow: 3px 7px 20px;
+    }
+
+    form input {
+        padding: 25px;
+        width: 320px;
+        margin-bottom: 20px;
+    }
+
+    .areaInputs {
+        padding-bottom: 20px;
+    }
+
+    .areaButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+
+    }
+
+    .areaButtons button {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+
+    .otherLoginArea {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: 100px;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    /* TUDO IGUAL SÓ COPIAR E COLAR!!!*/
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(45deg, blue, red);
+        transition: 1.9s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+    }
+
+    .main h1 {
+        color: white;
+        margin-top: -20px;
+        margin-bottom: 10px;
+    }
+
+    .cardLogin {
+        background-color: white;
+        padding: 30px;
+        width: 400px;
+        height: 500px;
+        transition: 1.9s;
+        border-radius: 10px;
+        box-shadow: 3px 7px 20px;
+    }
+
+    form input {
+        padding: 25px;
+        width: 320px;
         margin-bottom: 20px;
     }
 
