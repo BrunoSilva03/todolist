@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Accounts } from 'meteor/accounts-base';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './TelaLogin.module.css';
 
@@ -11,25 +12,34 @@ import { LoginWithGoogle } from './LoginWithGoogle';
 export default TelaLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const submit = e => {
         e.preventDefault();
 
-        Meteor.loginWithPassword(username, password);
+        Meteor.loginWithPassword(username, password, (error) => {
+            if(error) {
+                console.log(error.reason);
+            } else {
+                console.log('Login realizado com sucesso!');
+                
+            }
+        });
     }
 
     const register = e => {
         e.preventDefault();
-        alert('Entrou no register');
-
-        //Meteor.resgisterWithPassword(username, password);
-       Accounts.createUser(username, password);
-       
-       if(!err) {
-        return true;
-       } else {
-        return false;
-       }
+        
+        //Chamada para criar o usuário
+        Accounts.createUser({ username, password }, (error) => {
+            if(error) {
+                console.log(error.reason); //Mostra o motivo do erro
+            } else {
+                console.log('Usuário criado com sucesso!');
+                navigate.push('/'); //Redireciona para a página inicial
+                
+            }
+        })
     }
 
     const recoverPassword = e => {
@@ -54,6 +64,7 @@ export default TelaLogin = () => {
                             name="username"
                             required
                             autoComplete="off"
+                            value={username}
                             onChange={e => setUsername(e.target.value)}
                         />
                         
@@ -63,6 +74,8 @@ export default TelaLogin = () => {
                             placeholder="Password"
                             name="password"
                             required
+                            autoComplete="off"
+                            value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
