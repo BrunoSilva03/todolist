@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { useNavigate } from 'react-router-dom';
 
+
 import styles from './TelaLogin.module.css';
 
 import { LoginWithGithub } from './LoginWithGithub';
@@ -36,7 +37,7 @@ export default TelaLogin = () => {
                 console.log(error.reason); //Mostra o motivo do erro
             } else {
                 console.log('Usuário criado com sucesso!');
-                navigate.push('/'); //Redireciona para a página inicial
+                navigate('/'); //Redireciona para a página inicial
                 
             }
         })

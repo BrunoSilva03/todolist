@@ -11,7 +11,7 @@ export default HomePage = () => {
 
     const logout = () => {
         Meteor.logout();
-        navigate.push('/'); //Redireciona para a página inicial após o logout
+        navigate('/'); //Redireciona para a página inicial após o logout
     }
 
     if(user) {
@@ -30,6 +30,7 @@ export default HomePage = () => {
                <div className="user" onClick={logout}>
                 {user.username || user.profile.name}
                 <h1>Você entrou na bagaça!</h1>
+                <button onClick={logout}>Deslogar</button>
                </div>
             </Fragment>
             
