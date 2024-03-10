@@ -22,23 +22,17 @@ export default HomePage = () => {
 
     return (
         <>
-        con
         <div className="main">
         {user ? (
             <Fragment>
-                {console.log('user: ' + user)};
                <div className="user" onClick={logout}>
                 {user.username || user.profile.name}
                 <h1>Você entrou na bagaça!</h1>
                 <button onClick={logout}>Deslogar</button>
                </div>
             </Fragment>
-            
         ) : (
-            <>
-            {console.log('user: ' + user)};
             < TelaLogin />
-            </>
         )}
         </div>
             

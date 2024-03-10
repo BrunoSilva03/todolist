@@ -7,11 +7,17 @@ import styles from './LoginButtons.module.css';
 export const LoginWithGoogle = () => {
 
     const handleGoogleLogin = () => {
-        Meteor.loginWithGoogle(err => {
-            if(!err) alert('Logado com Sucesso!');
-
-            else alert(err.reason || 'Unknown Error');
-        });
+            Meteor.loginWithGoogle({
+                requestPermissions: ['user'],
+                loginStyle: 'popup',
+            });
+        // Meteor.loginWithGoogle(err => {
+        //     if(!err) alert('Logado com Sucesso!');
+            
+        //     else alert(err.reason || 'Unknown Error');
+            
+            
+        // });
     };
 
     const simulaHover = () => {

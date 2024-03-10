@@ -50,6 +50,7 @@ export default TelaLogin = () => {
 
 
     return (
+        <>
         <div className="main">
 
                 <h1>Bem vindo ao To Do list</h1>
@@ -93,9 +94,11 @@ export default TelaLogin = () => {
                         
                         <LoginWithGithub />
                         <LoginWithGoogle />
+                        <>Quando publicar lembrar de alterar o URIs de redirecionamento autorizados no Google console</>
                     </div>
                 </form>
             </div>
         </div>
+        </>
     )
 }
