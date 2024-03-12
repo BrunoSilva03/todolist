@@ -1,96 +1,177 @@
-.mainBoasVindas {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    gap: 2em;
-}
 
-.mainBoasVindas h1 {
-    margin-top: 2em;
-    font-size: 1.3em;
-}
 
-.areaCards {
-    width: 45vw;
-    height: 60vh;
-    margin-bottom: 2em;
-    display: grid;
-    grid-template-columns: 2fr 5fr 2fr;
-    grid-template-rows: 2fr 5fr 2fr;
-    grid-template-areas: 
-    "card1   .   card2"
-    ".       .   .    "
-    "card3   .   card4";
-}
 
-.areaCards div {
-    background-color: gray;
-    width: 250px;
-    height: 200px;
-    padding: 15px;
-}
 
-.card1 {
-    grid-area: card1;
-}
+    .mainBoasVindas {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 2em;
+        transition: 1.9s;
+    }
 
-.card2 {
-    grid-area: card2;
-}
+    .mainBoasVindas h1 {
+        margin-top: 2em;
+        font-size: 1.3em;
+    }
 
-.card3 {
-    grid-area: card3;
-}
+    .areaCards {
+        width: 45vw;
+        height: 60vh;
+        margin-bottom: 2em;
+        display: grid;
+        grid-template-columns: 2fr 5fr 2fr;
+        grid-template-rows: 2fr 5fr 2fr;
+        grid-template-areas:
+            "card1   .   card2"
+            ".       .   .    "
+            "card3   .   card4";
+    }
 
-.card4 {
-    grid-area: card4;
-}
+    .areaCards div {
+        background-color: gray;
+        width: 250px;
+        height: 200px;
+        padding: 15px;
+    }
 
-.emailArea {
+    .card1 {
+        grid-area: card1;
+    }
+
+    .card2 {
+        grid-area: card2;
+    }
+
+    .card3 {
+        grid-area: card3;
+    }
+
+    .card4 {
+        grid-area: card4;
+    }
+
+    .emailArea {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .btnEmailRec {
+        width: 30vw;
+        height: 45px;
+        padding: 10px;
+        background-color: rgb(0, 115, 255);
+        border: none;
+        box-shadow: 3px 7px 13px rgba(0, 0, 0, 0.295);
+        color: white;
+        transition: 0.9s;
+    }
+
+    .btnEmailRec:hover {
+        background-color: rgb(3, 95, 208);
+    }
+
+    abbr {
+        text-decoration: none;
+    }
+
+    .areaBtnSair {
+        width: 100%;
+        text-align: right;
+        padding: 5px;
+    }
+
+
+    .btnSair {
+        border: none;
+        padding: 10px;
+        width: 60px;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px solid black;
+        transition: .9s;
+    }
+
+    .btnSair:hover {
+        background-color: rgb(207, 2, 2);
+    }
+
+    .areaButtonsBoasVindas {
+        display: flex;
+        padding: 25px;
+        flex-direction: row;
+        width: 80%;
+        position: fixed;
+        bottom: 0;
+        align-items: center;
+    }
+
+
+
+    @media screen and (min-width: 281px) and (max-width: 600px) {
+
+        .mainBoasVindas {
+            gap: 1.9em;
+        }
     
-    padding: 5px;;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-}
+    
+        .mainBoasVindas h1 {
+            font-size: .9em;
+            text-align: center;
+            width: 90vw;
+        }
+    
+        .areaCards {
+            width: 79vw;
+            height: 47vh;
+            grid-template-columns: 3fr 2fr 3fr;
+            grid-template-rows: 3fr 2fr 3fr;
+    
+        }
+    
+        .areaCards div {
+            width: 120px;
+            height: 120px;
+        }
 
-.btnEmailRec {
-    width: 40vw;
-    padding: 10px;
-    background-color: rgb(0, 115, 255);
-    border: none;
-    box-shadow: 3px 7px 13px rgba(0, 0, 0, 0.295);
-    color: white;
-    transition: 0.9s;
-}
+        .areaButtonsBoasVindas {
+            background: yellow;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            align-items: center;
+            justify-content: space-around;
+        }
+    
+        .emailArea {
+            margin-top: 5em;
+            
+        }
+    
+        .btnEmailRec {
+            width: 60vw;
+           
+        }
 
-.btnEmailRec:hover {
-    background-color: rgb(3, 95, 208);
-}
+        .areaBtnSair {
+            width: 70%;
+            padding: 12px;
+            position: fixed;
+            bottom: 0;
+        }
 
-.areaBtnSair {
-width: 100%;
-text-align: right;
-padding: 5px;
-}
+        .btnSair {
+           
+        }
+    }
 
-
-.btnSair {
-   border: none;
-   padding: 10px;
-   width: 60px;
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px solid black;
-    transition: .9s;
-}
-
-.btnSair:hover {
-    background-color: rgb(207, 2, 2);
-}
 

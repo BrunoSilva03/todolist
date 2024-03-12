@@ -39,12 +39,15 @@ export default BoasVindas = () => {
                 <div className="card4"><h3>Visualizar Tarefas</h3></div>
             </div>
 
-           <div className="emailArea">
-            <button className="btnEmailRec" onClick={() => registrarEmail()}>Adicione seu email de recuperação</button>
-            <span>Caso esqueça sua senha você poderá entrar novamente utilizando seu email</span>
+           <div className="areaButtonsBoasVindas">
+            {5 > 10 ? (<div className="emailArea">
+                <button className="btnEmailRec" onClick={() => registrarEmail()}><abbr title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr></button>
+               </div>) : (
+                <div></div>
+               )}
+               
+                <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
            </div>
-
-            <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
         </div>
     )
 }
