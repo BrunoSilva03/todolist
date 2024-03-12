@@ -13,16 +13,16 @@ export default BoasVindas = () => {
 
     const logout = () => {
         Meteor.logout();
-        toast.success('Até breve :)');
+        toast.success('Volte sempre :)');
         navigate('/'); // Redireciona para a página inicial após o logout
         
     }
 
     return (
-        <div className="user" onClick={logout}>
+        <div className={styles.main}>
             {user.username || user.profile.name}
-            <h1>Olá {user.username} Você entrou na bagaça! Tá Ok!?</h1>
-            <button onClick={() => logout}>Deslogar</button>
+            <h1>Olá {user.username || user.profile.name} Você entrou na bagaça! Tá Ok Companheiro!?</h1>
+            <button onClick={() => logout()}>Deslogar</button>
         </div>
     )
 }

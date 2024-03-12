@@ -16,7 +16,7 @@ export default HomePage = () => {
 
     return (
         <>
-            <div className="main">
+            
                 {user ? (
                     <Fragment>
                        <BoasVindas />
@@ -24,7 +24,7 @@ export default HomePage = () => {
                 ) : (
                     < TelaLogin />
                 )}
-            </div>
+            
 
         </>
     )

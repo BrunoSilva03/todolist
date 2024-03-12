@@ -24,6 +24,7 @@ export default TelaLogin = () => {
 
         Meteor.loginWithPassword(username, password, (error) => {
             if(error) {
+                toast.error(String(error.reason));
                 console.log(error.reason);
                 
             } else {
