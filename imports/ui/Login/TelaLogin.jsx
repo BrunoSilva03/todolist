@@ -65,7 +65,7 @@ export default TelaLogin = () => {
 
     return (
         <>
-        <div className="main">
+        <div className="mainLogin">
 
                 <h1>Bem vindo ao To Do list</h1>
 

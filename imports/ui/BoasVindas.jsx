@@ -19,10 +19,22 @@ export default BoasVindas = () => {
     }
 
     return (
-        <div className={styles.main}>
-            {user.username || user.profile.name}
-            <h1>Olá {user.username || user.profile.name} Você entrou na bagaça! Tá Ok Companheiro!?</h1>
-            <button onClick={() => logout()}>Deslogar</button>
+        <div className="mainBoasVindas">
+            <h1>Olá {user.username || user.profile.name} Seja Bem-Vindo ao To Do List</h1>
+
+            <div className="areaCards">
+                <div className="card1">Conteúdo</div>
+                <div className="card2">Conteúdo</div>
+                <div className="card3">Conteúdo</div>
+                <div className="card4">Conteúdo</div>
+            </div>
+
+           <div className="emailArea">
+            <button className="btnEmailRec">Adicione seu email de recuperação</button>
+            <span>Caso esqueça sua senha você poderá entrar novamente utilizando seu email</span>
+           </div>
+
+            <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
         </div>
     )
 }
