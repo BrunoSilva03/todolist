@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Accounts } from 'meteor/accounts-base';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,9 +12,11 @@ import { LoginWithGoogle } from './LoginWithGoogle';
 
 
 
+
 export default TelaLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
     const submit = e => {
@@ -21,8 +25,9 @@ export default TelaLogin = () => {
         Meteor.loginWithPassword(username, password, (error) => {
             if(error) {
                 console.log(error.reason);
+                
             } else {
-                console.log('Login realizado com sucesso!');
+                toast.success('Login feito com sucesso!');
                 
             }
         });
@@ -34,10 +39,16 @@ export default TelaLogin = () => {
         //Chamada para criar o usuário
         Accounts.createUser({ username, password }, (error) => {
             if(error) {
+                toast.error(error.reason);
                 console.log(error.reason); //Mostra o motivo do erro
+                if(error.reason == 'Incorrect password') {
+                    toast.warn('Senha Incorreta');
+                }
             } else {
                 console.log('Usuário criado com sucesso!');
                 navigate('/'); //Redireciona para a página inicial
+                toast.success('Usuário cadastrado com Sucesso!!!');
+                
                 
             }
         })
@@ -47,6 +58,8 @@ export default TelaLogin = () => {
         e.preventDefault();
         alert('entrou no recoverPassword');
     }
+
+    
 
 
     return (
