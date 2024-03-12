@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import { Accounts } from 'meteor/accounts-base';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -18,6 +19,15 @@ export default BoasVindas = () => {
         
     }
 
+    Accounts.onLogin(() => {
+        //voltar para a tela inicial depois que confirmou seu email.
+        navigate('/');
+    })
+
+    const registrarEmail = () => {
+        navigate('/registrar-email');
+    }
+
     return (
         <div className="mainBoasVindas">
             <h1>Olá {user.username || user.profile.name} Seja Bem-Vindo ao To Do List</h1>
@@ -26,11 +36,11 @@ export default BoasVindas = () => {
                 <div className="card1">Conteúdo</div>
                 <div className="card2">Conteúdo</div>
                 <div className="card3">Conteúdo</div>
-                <div className="card4">Conteúdo</div>
+                <div className="card4"><h3>Visualizar Tarefas</h3></div>
             </div>
 
            <div className="emailArea">
-            <button className="btnEmailRec">Adicione seu email de recuperação</button>
+            <button className="btnEmailRec" onClick={() => registrarEmail()}>Adicione seu email de recuperação</button>
             <span>Caso esqueça sua senha você poderá entrar novamente utilizando seu email</span>
            </div>
 

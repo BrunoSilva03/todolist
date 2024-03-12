@@ -6,6 +6,11 @@ import { ServiceConfiguration } from 'meteor/service-configuration';
 const SEED_USERNAME = 'username';
 const SEED_PASSWORD = 'password';
 
+//Ativar confirmação do email
+Accounts.config({
+  sendVerificationEmail: true,
+});
+
 Meteor.startup(() => {
  if(!Accounts.findUserByUsername(SEED_USERNAME)) {
   Accounts.createUser({
@@ -38,3 +43,18 @@ ServiceConfiguration.configurations.upsert(
     },
   }
 );
+
+Meteor.methods({
+  'verificarEmail': function(email) {
+    FaCheck(email, String);
+
+    const user = Meteor.users.findOne({ 'emails.address':email });
+    if(user) {
+      //o email está cadastrado
+      return true;
+    } else {
+      //o email não está cadastrado
+      return false;
+    }
+  }
+})
