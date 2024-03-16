@@ -17,7 +17,9 @@
     font-size: 1.3em;
 }
 
-.areaCards {
+
+
+/* .areaCards {
     width: 45vw;
     height: 60vh;
     margin-bottom: 2em;
@@ -36,12 +38,20 @@
     height: 200px;
     padding: 15px;
     text-align: left;
+} */
+
+.card1, .card2, .card3, .card4 {
+    background-color: gray;
+    width: 250px;
+    height: 200px;
+    padding: 15px;
+    text-align: left;
 }
 
-.areaCards div  h3 {
+/* .areaCards div  h3 {
     display: flex;
     justify-content: left;
-}
+} */
 
 .card1 {
     grid-area: card1;
@@ -57,6 +67,10 @@
 
 .card4 {
     grid-area: card4;
+}
+
+.card4 h3 {
+    font-weight: bold;
 }
 
 
@@ -80,6 +94,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     transition: 1s;
 }
 
@@ -138,5 +153,67 @@ abbr {
     align-items: center;
 }
 
+@media screen and (max-width: 280px) {
+    .card1, .card2, .card3, .card4 {
+        font-size: .9em;
+        width: 100px;
+        height: 100px;
+    }
+
+    .card4 h3 {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+}
+
+@media screen and (width: 360px) and (height: 740px) {
+    .card1, .card2, .card3, .card4 {
+        width: 130px;
+        height: 130px;
+    }
+
+    .areaCards {
+        width: 90vw;
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 361px) and (max-width: 600px) {
+    .card1, .card2, .card3, .card4 {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .areaCards {
+        width: 70vw;
+        height: 70vh;
+        display: grid;
+    }
+
+    .card1 {
+        grid-area: card1;
+    }
+
+    .card2 {
+        grid-area: card2;
+    }
+
+    .card3 {
+        grid-area: card3;
+    }
+
+    .card4 {
+        grid-area: card4;
+    }
+
+    .card1, .card2, .card3, .card4 {
+        font-size: 1.9em;
+        width: 270px;
+        height: 270px;
+    }
+
+}
 
 
