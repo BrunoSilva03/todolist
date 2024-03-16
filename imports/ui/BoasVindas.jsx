@@ -29,43 +29,40 @@ export default BoasVindas = () => {
     // })
 
 
-   
+
 
 
 
     return (
-        <div className="mainBoasVindas">
-            <h1>Olá {user.username || user.profile.name} Seja Bem-Vindo ao To Do List</h1>
+
+        <div className="container-fluid">
+            <div className="row">
+
+            <div className="mainBoasVindas col-sm-6">
+                <h1>Olá {user.username || user.profile.name} Seja Bem-Vindo ao To Do List</h1>
+                <div className="popupEmail">
+                    <label>Email: </label>
+                    <input type="email" />
+                    <button onClick={() => fecharPopUpEmail()}>Enviar</button>
+                </div>
+                <div className="areaCards">
+                    <div className="card1">Conteúdo</div>
+                    <div className="card2">Conteúdo</div>
+                    <div className="card3">Conteúdo</div>
+                    <div className="card4"><h3>Visualizar Tarefas</h3></div>
+                </div>
 
 
-
-
-            <div className="popupEmail">
-                <label>Email: </label>
-                <input type="email" />
-                <button onClick={() => fecharPopUpEmail()}>Enviar</button>
+                <div className="row">
+                    <button className="btnEmailRec" onClick={() => abrirPopUpEmail()} ><abbr title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr></button>
+                    <div className="areaButtonsBoasVindas">
+                        <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
+                    </div>
+                </div>
             </div>
 
-
-            <div className="areaCards">
-                <div className="card1">Conteúdo</div>
-                <div className="card2">Conteúdo</div>
-                <div className="card3">Conteúdo</div>
-                <div className="card4"><h3>Visualizar Tarefas</h3></div>
-            </div>
-
-
-
-
-        
-
-                <button className="btnEmailRec" onClick={() => abrirPopUpEmail()} ><abbr title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr></button>
-
-            
-
-            <div className="areaButtonsBoasVindas">
-                <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
             </div>
         </div>
+
     )
 }
