@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Button } from 'react-bootstrap';
 
 import styles from './BoasVindas.module.css';
 
@@ -74,7 +75,43 @@ export default BoasVindas = () => {
 
 
 
-                    <button className="btnEmailRec" onClick={() => abrirPopUpEmail()} ><abbr title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr></button>
+                    <div className="container">
+                        <div className="row">
+
+                            <div className="areaEmailBtnRec">
+                                <div className="col-sm-6 areaEmailBtnRec2" >
+                                    <button className="btn btn-lg btn-primary d-none d-sm-block btnEmailRec" onClick={() => abrirPopUpEmail()}>
+                                    <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="areaEmailBtnRec">
+                                <div className="col-sm-6 areaEmailBtnRec">
+                                    <button className="btn btn-sm btn-primary d-block d-sm-none btnEmailRec" onClick={() => abrirPopUpEmail()}> <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="col-sm-6">
+                                <Button variant="primary" className="btn btn-lg btn-block" onClick={() => abrirPopUpEmail()}>
+                                    <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
+                                </Button>
+                            </div>
+
+                            <div className="col-sm-6">
+                                <Button variant="secondary" className="btn btn-sm btn-block" onClick={() => abrirPopUpEmail()}>
+                                    <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
+                                </Button>
+                            </div> */}
+                    {/* <button className="btnEmailRec" onClick={() => abrirPopUpEmail()} >
+                                <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
+                            </button> */}
+
+
+
                     <div className="areaButtonsBoasVindas">
                         <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
                     </div>
