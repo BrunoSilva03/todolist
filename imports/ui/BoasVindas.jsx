@@ -28,20 +28,7 @@ export default BoasVindas = () => {
     //     navigate('/');
     // })
 
-const abrirPopUpEmail = () => {
-    $(function() { 
-        
-        $('.popupEmail').fadeIn(1000);
-        $('popupEmail').css('display', 'block');
-    });
-}
 
-const fecharPopUpEmail = () => {
-    $(function() {
-        $('.popupEmail').fadeOut(3000);
-        $('.popupEmail').css('display', 'none');
-    });
-}
    
 
 
@@ -70,11 +57,11 @@ const fecharPopUpEmail = () => {
 
 
 
-            <div className="emailArea">
+        
 
                 <button className="btnEmailRec" onClick={() => abrirPopUpEmail()} ><abbr title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr></button>
 
-            </div>
+            
 
             <div className="areaButtonsBoasVindas">
                 <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
