@@ -15,30 +15,9 @@
 .mainBoasVindas h1 {
     margin-top: 2em;
     font-size: 1.3em;
+    text-align: center;
 }
 
-
-
-/* .areaCards {
-    width: 45vw;
-    height: 60vh;
-    margin-bottom: 2em;
-    display: grid;
-    grid-template-columns: 2fr 5fr 2fr;
-    grid-template-rows: 2fr 5fr 2fr;
-    grid-template-areas:
-        "card1   .   card2"
-        ".       .   .    "
-        "card3   .   card4";
-}
-
-.areaCards div {
-    background-color: gray;
-    width: 250px;
-    height: 200px;
-    padding: 15px;
-    text-align: left;
-} */
 
 .card1, .card2, .card3, .card4 {
     background-color: gray;
@@ -47,11 +26,6 @@
     padding: 15px;
     text-align: left;
 }
-
-/* .areaCards div  h3 {
-    display: flex;
-    justify-content: left;
-} */
 
 .card1 {
     grid-area: card1;
@@ -88,25 +62,6 @@ text-align: center;
 }
 
 
-/* .btnEmailRec {
-    width: 30vw;
-    height: 45px;
-    padding: 10px;
-    background-color: rgb(0, 115, 255);
-    border: none;
-    box-shadow: 3px 7px 13px rgba(0, 0, 0, 0.295);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    transition: 1s;
-} */
-
-/* .btnEmailRec:hover {
-    background-color: rgb(4, 84, 182);
-} */
-
 .popupEmail {
     display: none;
     background: yellow;
@@ -124,6 +79,13 @@ text-align: center;
 
 abbr {
     text-decoration: none;
+}
+.btnEmailRec {
+    z-index: 1;
+}
+
+.btnEmailRec:hover {
+    background: #0a54c3
 }
 
 .areaBtnSair {
@@ -197,7 +159,9 @@ abbr {
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .areaCards {
         width: 70vw;
         height: 70vh;
@@ -232,6 +196,8 @@ abbr {
 
 }
 
+
+
 @media screen and (min-width: 1200px) and (max-width: 1200px) {
     
 }
@@ -257,11 +223,7 @@ abbr {
     }
 }
 
-@media screen and (width: 1024px) and (height: 1366px) {
-    .mainBoasVindas {
-        background: yellow;
-    }
-}
+
 
 
 

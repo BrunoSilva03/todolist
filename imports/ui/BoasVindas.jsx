@@ -5,11 +5,13 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
+import  CadastrarEmail   from './Login/CadastrarEmail';
 
 import styles from './BoasVindas.module.css';
 
 export default BoasVindas = () => {
     const user = useTracker(() => Meteor.user());
+    const [mostrarPopUp, setMostrarPopUp] = useState(false);
     const navigate = useNavigate();
 
 
@@ -29,7 +31,10 @@ export default BoasVindas = () => {
     //     navigate('/');
     // })
 
-
+    const abrirPopUpEmail = () => {
+        alert('entrou!');
+        setMostrarPopUp(true);
+    }
 
 
 
@@ -43,6 +48,8 @@ export default BoasVindas = () => {
                     <div className="row">
                         <h1>Olá {user.username || user.profile.name} Seja Bem-Vindo ao To Do List</h1>
                     </div>
+
+                    {mostrarPopUp && <CadastrarEmail />}
 
                     <div className="popupEmail">
                         <label>Email: </label>
@@ -95,23 +102,7 @@ export default BoasVindas = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="col-sm-6">
-                                <Button variant="primary" className="btn btn-lg btn-block" onClick={() => abrirPopUpEmail()}>
-                                    <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
-                                </Button>
-                            </div>
-
-                            <div className="col-sm-6">
-                                <Button variant="secondary" className="btn btn-sm btn-block" onClick={() => abrirPopUpEmail()}>
-                                    <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
-                                </Button>
-                            </div> */}
-                    {/* <button className="btnEmailRec" onClick={() => abrirPopUpEmail()} >
-                                <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
-                            </button> */}
-
-
-
+                   
                     <div className="areaButtonsBoasVindas">
                         <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
                     </div>
