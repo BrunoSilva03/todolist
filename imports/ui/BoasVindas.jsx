@@ -5,7 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
-import  CadastrarEmail   from './Login/CadastrarEmail';
+import CadastrarEmail from './Login/CadastrarEmail';
 
 import styles from './BoasVindas.module.css';
 
@@ -16,9 +16,6 @@ export default BoasVindas = () => {
 
 
 
-
-
-
     const logout = () => {
         Meteor.logout();
         toast.success('Volte sempre :)');
@@ -26,16 +23,31 @@ export default BoasVindas = () => {
 
     }
 
-    // Accounts.onLogin(() => {
-    //     //voltar para a tela inicial depois que confirmou seu email.
-    //     navigate('/');
-    // })
+    const newEmail = (email) => {
+        Meteor.call('cadastrarEmail', email, (error) => {
+            if(error) {
+                console.log('Erro ao cadastrar o email: ', error);
+                toast.error(String(error));
+            } else {
+                console.log('Email cadastrado com sucesso!');
+                toast.success('Email cadastrado com Sucesso!!!');
+            }
+        })
+        console.log('entrou 1');
+        Accounts.onLogin(() => {
+            console.log('entrou 2');
+            //voltar para a tela inicial depois que confirmou seu email.
+            navigate('/');
+        })
+    }
 
     const abrirPopUpEmail = () => {
-        alert('entrou!');
         setMostrarPopUp(true);
     }
 
+    const fecharPopUpEmail = () => {
+        setMostrarPopUp(false);
+    }
 
 
 
@@ -49,13 +61,15 @@ export default BoasVindas = () => {
                         <h1>Olá {user.username || user.profile.name} Seja Bem-Vindo ao To Do List</h1>
                     </div>
 
-                    {mostrarPopUp && <CadastrarEmail />}
+                    {mostrarPopUp &&
+                        <CadastrarEmail submitEmail={newEmail} handleClose={fecharPopUpEmail} />
+                    }
 
-                    <div className="popupEmail">
+                    {/* <div className="popupEmail">
                         <label>Email: </label>
                         <input type="email" />
                         <button onClick={() => fecharPopUpEmail()}>Enviar</button>
-                    </div>
+                    </div> */}
 
                     <div className="areaCards">
                         <div className="row">
@@ -88,7 +102,7 @@ export default BoasVindas = () => {
                             <div className="areaEmailBtnRec">
                                 <div className="col-sm-6 areaEmailBtnRec2" >
                                     <button className="btn btn-lg btn-primary d-none d-sm-block btnEmailRec" onClick={() => abrirPopUpEmail()}>
-                                    <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
+                                        <abbr className="text-decoration-none" title="Caso esqueça sua senha você poderá entrar novamente utilizando seu email">Adicione seu email de recuperação</abbr>
                                     </button>
                                 </div>
                             </div>
@@ -102,7 +116,7 @@ export default BoasVindas = () => {
                             </div>
                         </div>
                     </div>
-                   
+
                     <div className="areaButtonsBoasVindas">
                         <div className="areaBtnSair"><button onClick={() => logout()} className="btnSair">Sair</button></div>
                     </div>

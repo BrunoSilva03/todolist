@@ -1,6 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { ServiceConfiguration } from 'meteor/service-configuration';
+import { Mongo } from 'meteor/mongo';
+import { Email } from 'meteor/email';
+import SimpleSchema from 'simpl-schema';
+
+
 
 
 const SEED_USERNAME = 'username';
@@ -21,6 +26,27 @@ Meteor.startup(() => {
 });
 
 const user = Accounts.findUserByUsername(SEED_USERNAME);
+
+
+const Emails = new Mongo.Collection('emails');
+
+const EmailSchema = new SimpleSchema({
+  email: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email,
+    unique: true,
+  },
+
+  createdAt: {
+    type: Date,
+    autoValue: () => new Date(),
+  },
+
+});
+
+Emails.attachSchema(EmailSchema);
+
+
 
 ServiceConfiguration.configurations.upsert(
   { service: 'github' },
@@ -43,6 +69,13 @@ ServiceConfiguration.configurations.upsert(
     },
   }
 );
+
+Meteor.methods({
+  'cadastrarEmail': function(email) {
+    Emails.insert({ email });
+    console.log(`Email cadastrado: ${email}`);
+  }
+});
 
 Meteor.methods({
   'verificarEmail': function(email) {
