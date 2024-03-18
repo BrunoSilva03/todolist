@@ -3,48 +3,39 @@ import { Accounts } from 'meteor/accounts-base';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 import { Mongo } from 'meteor/mongo';
 import { Email } from 'meteor/email';
-import SimpleSchema from 'simpl-schema';
-
-
-
-
-const SEED_USERNAME = 'username';
-const SEED_PASSWORD = 'password';
 
 //Ativar confirmação do email
 Accounts.config({
   sendVerificationEmail: true,
 });
 
+const SEED_USERNAME = 'username';
+const SEED_PASSWORD = 'password';
+const SEED_EMAIL = 'exemplodeemail@gmail.com'
+
+
 Meteor.startup(() => {
- if(!Accounts.findUserByUsername(SEED_USERNAME)) {
-  Accounts.createUser({
-    username: SEED_USERNAME,
-    password: SEED_PASSWORD,
-  });
- }
+  //Configuração do envio de emails
+  process.env.MAIL_URL = 'smtp.gmail.com//bruno5ssilva02@gmail.com/***colocarasenhadepois*****@smtp.gmail.com:587/'
+  if (!Accounts.findUserByUsername(SEED_USERNAME)) {
+    const userId = Accounts.createUser({
+      username: SEED_USERNAME,
+      password: SEED_PASSWORD,
+      email: SEED_EMAIL,
+    });
+
+    if(userId) {
+      console.log('Usuário criado com sucesso:', SEED_USERNAME);
+    } else {
+      console.log('Erro ao criar usuário.');
+    }
+  }
 });
 
 const user = Accounts.findUserByUsername(SEED_USERNAME);
 
 
-const Emails = new Mongo.Collection('emails');
 
-const EmailSchema = new SimpleSchema({
-  email: {
-    type: String,
-    regEx: SimpleSchema.RegEx.Email,
-    unique: true,
-  },
-
-  createdAt: {
-    type: Date,
-    autoValue: () => new Date(),
-  },
-
-});
-
-Emails.attachSchema(EmailSchema);
 
 
 
@@ -71,18 +62,17 @@ ServiceConfiguration.configurations.upsert(
 );
 
 Meteor.methods({
-  'cadastrarEmail': function(email) {
-    Emails.insert({ email });
+  'cadastrarEmail': function (email) {
     console.log(`Email cadastrado: ${email}`);
-  }
-});
+  },
 
-Meteor.methods({
-  'verificarEmail': function(email) {
-    FaCheck(email, String);
 
-    const user = Meteor.users.findOne({ 'emails.address':email });
-    if(user) {
+  'verificarEmail': function (email) {
+    //faCheck
+    check(email, String);
+
+    const user = Meteor.users.findOne({ 'emails.address': email });
+    if (user) {
       //o email está cadastrado
       return true;
     } else {
@@ -90,4 +80,6 @@ Meteor.methods({
       return false;
     }
   }
-})
+
+});
+

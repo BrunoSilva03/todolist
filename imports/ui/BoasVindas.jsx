@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useNavigate, Link } from 'react-router-dom';
@@ -23,24 +23,6 @@ export default BoasVindas = () => {
 
     }
 
-    const newEmail = (email) => {
-        Meteor.call('cadastrarEmail', email, (error) => {
-            if(error) {
-                console.log('Erro ao cadastrar o email: ', error);
-                toast.error(String(error));
-            } else {
-                console.log('Email cadastrado com sucesso!');
-                toast.success('Email cadastrado com Sucesso!!!');
-            }
-        })
-        console.log('entrou 1');
-        Accounts.onLogin(() => {
-            console.log('entrou 2');
-            //voltar para a tela inicial depois que confirmou seu email.
-            navigate('/');
-        })
-    }
-
     const abrirPopUpEmail = () => {
         setMostrarPopUp(true);
     }
@@ -48,6 +30,39 @@ export default BoasVindas = () => {
     const fecharPopUpEmail = () => {
         setMostrarPopUp(false);
     }
+
+
+    const newEmail = (email) => {
+        alert('Tamo aí na atividade!');
+
+        Meteor.call('cadastrarEmail', email, (error) => {
+            if(error) {
+                console.log('Erro ao cadastrar o email: ', error);
+                toast.error(String(error));
+            } else {
+                console.log('Email cadastrado com sucesso!');
+                toast.success('Email cadastrado com Sucesso!!!');
+                fecharPopUpEmail();
+            }
+        })
+        
+        // console.log('entrou 1');
+        // Accounts.onLogin(() => {
+        //     Meteor.call('cadastrarEmail', email, (error) => {
+        //         if(error) {
+        //             console.log('Erro ao cadastrar o email: ', error);
+        //             toast.error(String(error));
+        //         } else {
+        //             console.log('Email cadastrado com sucesso!');
+        //             toast.success('Email cadastrado com Sucesso!!!');
+        //         }
+        //     })
+        //     console.log('entrou 2');
+        //     //voltar para a tela inicial depois que confirmou seu email.
+        //     navigate('/');
+        // })
+    }
+
 
 
 

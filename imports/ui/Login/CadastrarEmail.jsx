@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Button, Modal } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,14 +7,16 @@ import './CadastrarEmail.module.css';
 
 export default CadastrarEmail = ({ handleClose, submitEmail }) => {
   const [email, setEmail] = useState('');
-  const [popup, setPopup] = useState(true);
 
-  const fecharPopUp = () => {
-    setPopup(false);
+  const handleSubmit = () => {
+    if(email.trim() === '') {
+      //Pra verificar se o email está vazio antes de enviar
+      alert('Por favor, insira um email válido.');
+    } else {
+      submitEmail(email);
+    }
   }
-
-  
-
+ 
   //Modal do Bootstrap
   return (
     <>
@@ -44,7 +45,7 @@ export default CadastrarEmail = ({ handleClose, submitEmail }) => {
 
             <Modal.Footer>
               <Button variant="secondary" className="btnCancelarEmail" onClick={handleClose}>Cancelar</Button>
-              <Button variant="primary" onClick={submitEmail}>Enviar</Button>
+              <Button variant="primary" onClick={handleSubmit}>Enviar</Button>
             </Modal.Footer>
           </Modal.Dialog>
         </div>
