@@ -1,8 +1,26 @@
+import React, { useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 import { Mongo } from 'meteor/mongo';
 import { Email } from 'meteor/email';
+
+useEffect(() => {
+  const getConfig = async () => {
+    try {
+      const response = await fetch('/config.json');
+      const config = await response.json();
+
+      //Use a configuração
+      process.env.MAIL_URL = config.MAIL_URL;
+    } catch (error) {
+      console.error('Erro ao ler o arquivo de configuração: ', error);
+    }
+  };
+
+  getConfig();
+
+}, []);
 
 //Ativar confirmação do email
 Accounts.config({
@@ -16,7 +34,7 @@ const SEED_EMAIL = 'exemplodeemail@gmail.com'
 
 Meteor.startup(() => {
   //Configuração do envio de emails
-  process.env.MAIL_URL = 'smtp.gmail.com//bruno5ssilva02@gmail.com/***colocarasenhadepois*****@smtp.gmail.com:587/'
+  process.env.MAIL_URL = config.MAIL_URL;
   if (!Accounts.findUserByUsername(SEED_USERNAME)) {
     const userId = Accounts.createUser({
       username: SEED_USERNAME,
