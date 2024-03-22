@@ -1,26 +1,9 @@
-import React, { useEffect } from 'react';
+
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 import { Mongo } from 'meteor/mongo';
 import { Email } from 'meteor/email';
-
-useEffect(() => {
-  const getConfig = async () => {
-    try {
-      const response = await fetch('/config.json');
-      const config = await response.json();
-
-      //Use a configuração
-      process.env.MAIL_URL = config.MAIL_URL;
-    } catch (error) {
-      console.error('Erro ao ler o arquivo de configuração: ', error);
-    }
-  };
-
-  getConfig();
-
-}, []);
 
 //Ativar confirmação do email
 Accounts.config({
@@ -29,12 +12,13 @@ Accounts.config({
 
 const SEED_USERNAME = 'username';
 const SEED_PASSWORD = 'password';
-const SEED_EMAIL = 'exemplodeemail@gmail.com'
+const SEED_EMAIL = 'exemplodeemail@gmail.com';
+
 
 
 Meteor.startup(() => {
   //Configuração do envio de emails
-  process.env.MAIL_URL = config.MAIL_URL;
+  // process.env.MAIL_URL = config.MAIL_URL;
   if (!Accounts.findUserByUsername(SEED_USERNAME)) {
     const userId = Accounts.createUser({
       username: SEED_USERNAME,
@@ -51,9 +35,6 @@ Meteor.startup(() => {
 });
 
 const user = Accounts.findUserByUsername(SEED_USERNAME);
-
-
-
 
 
 
@@ -81,7 +62,20 @@ ServiceConfiguration.configurations.upsert(
 
 Meteor.methods({
   'cadastrarEmail': function (email) {
-    console.log(`Email cadastrado: ${email}`);
+    // console.log(`Email cadastrado: ${email}`);
+
+    //Verifica se o email fornecido é válido
+    check(email, String);
+
+    //Envia o email de confirmação
+    Email.send({
+      to: email,
+      from: 'stevegomez002@gmail.com',
+      subject: 'Confirmação de Cadastro de Email',
+      text: `Olá, \n\nPor favor, confirme o seu email clicando neste link: ${Meteor.absoluteUrl()}confirmar-email/${email}\n\nAtenciosamente, Seu Aplicativo`,
+    });
+
+    console.log(`Email de confirmação enviado para ${email}`)
   },
 
 
@@ -100,4 +94,22 @@ Meteor.methods({
   }
 
 });
+
+
+// useEffect(() => {
+//   const getConfig = async () => {
+//     try {
+//       const response = await fetch('/config.json');
+//       const config = await response.json();
+
+//       //Use a configuração
+//       process.env.MAIL_URL = config.MAIL_URL;
+//     } catch (error) {
+//       console.error('Erro ao ler o arquivo de configuração: ', error);
+//     }
+//   };
+
+//   getConfig();
+
+// }, []);
 

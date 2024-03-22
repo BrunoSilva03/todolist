@@ -8,12 +8,15 @@ import './CadastrarEmail.module.css';
 export default CadastrarEmail = ({ handleClose, submitEmail }) => {
   const [email, setEmail] = useState('');
 
+
+
   const handleSubmit = () => {
     if(email.trim() === '') {
       //Pra verificar se o email está vazio antes de enviar
       alert('Por favor, insira um email válido.');
     } else {
-      submitEmail(email);
+      console.log('Testando pra ver o que rola');
+      // submitEmail(email);
     }
   }
  

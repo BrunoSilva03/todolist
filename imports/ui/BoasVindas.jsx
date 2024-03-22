@@ -32,36 +32,36 @@ export default BoasVindas = () => {
     }
 
 
-    const newEmail = (email) => {
-        alert('Tamo aí na atividade!');
+    // const newEmail = (email) => {
+    //     alert('Tamo aí na atividade!');
 
-        Meteor.call('cadastrarEmail', email, (error) => {
-            if(error) {
-                console.log('Erro ao cadastrar o email: ', error);
-                toast.error(String(error));
-            } else {
-                console.log('Email cadastrado com sucesso!');
-                toast.success('Email cadastrado com Sucesso!!!');
-                fecharPopUpEmail();
-            }
-        })
+    //     Meteor.call('cadastrarEmail', email, (error) => {
+    //         if(error) {
+    //             console.log('Erro ao cadastrar o email: ', error);
+    //             toast.error(String(error));
+    //         } else {
+    //             console.log('Email cadastrado com sucesso!');
+    //             toast.success('Email cadastrado com Sucesso!!!');
+    //             fecharPopUpEmail();
+    //         }
+    //     })
         
-        // console.log('entrou 1');
-        // Accounts.onLogin(() => {
-        //     Meteor.call('cadastrarEmail', email, (error) => {
-        //         if(error) {
-        //             console.log('Erro ao cadastrar o email: ', error);
-        //             toast.error(String(error));
-        //         } else {
-        //             console.log('Email cadastrado com sucesso!');
-        //             toast.success('Email cadastrado com Sucesso!!!');
-        //         }
-        //     })
-        //     console.log('entrou 2');
-        //     //voltar para a tela inicial depois que confirmou seu email.
-        //     navigate('/');
-        // })
-    }
+    //     // console.log('entrou 1');
+    //     // Accounts.onLogin(() => {
+    //     //     Meteor.call('cadastrarEmail', email, (error) => {
+    //     //         if(error) {
+    //     //             console.log('Erro ao cadastrar o email: ', error);
+    //     //             toast.error(String(error));
+    //     //         } else {
+    //     //             console.log('Email cadastrado com sucesso!');
+    //     //             toast.success('Email cadastrado com Sucesso!!!');
+    //     //         }
+    //     //     })
+    //     //     console.log('entrou 2');
+    //     //     //voltar para a tela inicial depois que confirmou seu email.
+    //     //     navigate('/');
+    //     // })
+    // }
 
 
 
@@ -77,8 +77,9 @@ export default BoasVindas = () => {
                     </div>
 
                     {mostrarPopUp &&
-                        <CadastrarEmail submitEmail={newEmail} handleClose={fecharPopUpEmail} />
+                        <CadastrarEmail  handleClose={fecharPopUpEmail} />
                     }
+                    {/* submitEmail={newEmail} */}
 
                     {/* <div className="popupEmail">
                         <label>Email: </label>
