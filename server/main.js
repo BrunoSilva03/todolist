@@ -4,6 +4,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 import { Mongo } from 'meteor/mongo';
 import { Email } from 'meteor/email';
+import { config } from '../config';
 
 // Carregando o pacote npm 'config'
 // const config = require('config');
@@ -34,8 +35,8 @@ const SEED_EMAIL = 'exemplodeemail@gmail.com';
 
 Meteor.startup(() => {
   //Configuração do envio de emails
-  const MAIL_URL = "smtps://oficialtodolist@gmail.com/155todolist@smtp.gmail.com:587/"
-  process.env.MAIL_URL = MAIL_URL;
+  
+  process.env.MAIL_URL = config.MAIL_URL;
   if (!Accounts.findUserByUsername(SEED_USERNAME)) {
     const userId = Accounts.createUser({
       username: SEED_USERNAME,
@@ -78,7 +79,15 @@ ServiceConfiguration.configurations.upsert(
   }
 );
 
-
+ServiceConfiguration.configurations.upsert(
+  { service: 'gmail' },
+  {
+    $set: {
+      clientId: config.GMAIL_CLIENTID,
+      secret: config.GMAIL_SECRET,
+    }
+  }
+)
 
 Meteor.methods({
   'cadastrarEmail': function (email) {
