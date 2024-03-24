@@ -5,6 +5,19 @@ import { ServiceConfiguration } from 'meteor/service-configuration';
 import { Mongo } from 'meteor/mongo';
 import { Email } from 'meteor/email';
 
+// Carregando o pacote npm 'config'
+// const config = require('config');
+
+// if(!config.has('MAIL_URL')) {
+//   console.log('Erro: A propriedade MAIL_URL não está definida no config.json.');
+//   process.exit(1); //Sai do processo com código de erro
+// }
+
+//Configurando o MAIL_URL com base no config.json
+// process.env.MAIL_URL = config.get('MAIL_URL');
+
+
+
 //Ativar confirmação do email
 Accounts.config({
   sendVerificationEmail: true,
@@ -13,12 +26,16 @@ Accounts.config({
 const SEED_USERNAME = 'username';
 const SEED_PASSWORD = 'password';
 const SEED_EMAIL = 'exemplodeemail@gmail.com';
+//465 ou 587 no MAIL_URL
+
+
 
 
 
 Meteor.startup(() => {
   //Configuração do envio de emails
-  // process.env.MAIL_URL = config.MAIL_URL;
+  const MAIL_URL = "smtps://oficialtodolist@gmail.com/155todolist@smtp.gmail.com:587/"
+  process.env.MAIL_URL = MAIL_URL;
   if (!Accounts.findUserByUsername(SEED_USERNAME)) {
     const userId = Accounts.createUser({
       username: SEED_USERNAME,
@@ -35,6 +52,7 @@ Meteor.startup(() => {
 });
 
 const user = Accounts.findUserByUsername(SEED_USERNAME);
+
 
 
 
@@ -59,6 +77,16 @@ ServiceConfiguration.configurations.upsert(
     },
   }
 );
+
+ServiceConfiguration.configurations.upsert(
+  { service: 'gmail' },
+  {
+    $set: {
+      clientId: '479154986263-um1kad9vg7dnpfk645gfcjn8i17cii0q.apps.googleusercontent.com',
+      secret: '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',
+    }
+  }
+)
 
 Meteor.methods({
   'cadastrarEmail': function (email) {

@@ -29,3 +29,7 @@ dev-error-overlay
 email
 aldeed:simple-schema
 accounts-base
+meteorhacks:npm
+
+
+npm-container

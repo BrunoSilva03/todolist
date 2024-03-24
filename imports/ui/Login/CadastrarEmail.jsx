@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,15 +9,17 @@ import './CadastrarEmail.module.css';
 export default CadastrarEmail = ({ handleClose, submitEmail }) => {
   const [email, setEmail] = useState('');
 
-
+  
 
   const handleSubmit = () => {
     if(email.trim() === '') {
       //Pra verificar se o email está vazio antes de enviar
       alert('Por favor, insira um email válido.');
     } else {
-      console.log('Testando pra ver o que rola');
-      // submitEmail(email);
+      console.log('Email a ser enviado: ', email);
+      submitEmail(email);
+      toast.success('Email de confirmação enviado, cheque sua caixa de entrada.');
+      handleClose();
     }
   }
  

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import React, { useEffect, useNavigate } from 'react';
-import toast from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 export default ConfirmarEmail = () => {
