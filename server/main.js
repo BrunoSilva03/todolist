@@ -81,10 +81,7 @@ ServiceConfiguration.configurations.upsert(
 ServiceConfiguration.configurations.upsert(
   { service: 'gmail' },
   {
-    $set: {
-      clientId: '479154986263-um1kad9vg7dnpfk645gfcjn8i17cii0q.apps.googleusercontent.com',
-      
-    }
+   
   }
 )
 
