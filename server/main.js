@@ -83,7 +83,7 @@ ServiceConfiguration.configurations.upsert(
   {
     $set: {
       clientId: '479154986263-um1kad9vg7dnpfk645gfcjn8i17cii0q.apps.googleusercontent.com',
-      secret: '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',
+      
     }
   }
 )
