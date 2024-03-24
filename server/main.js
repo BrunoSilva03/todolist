@@ -78,12 +78,7 @@ ServiceConfiguration.configurations.upsert(
   }
 );
 
-ServiceConfiguration.configurations.upsert(
-  { service: 'gmail' },
-  {
-   
-  }
-)
+
 
 Meteor.methods({
   'cadastrarEmail': function (email) {
